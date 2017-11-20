@@ -1,6 +1,7 @@
 package geometric;
 
 import org.junit.Test;
+import unit.Meter;
 
 import static org.junit.Assert.*;
 
@@ -10,11 +11,11 @@ public class FigureFactoryTest {
 
     @Test
     public void getMinArea() throws Exception {
-        Figure figure = new Rectangle(5, 6);
-        assertEquals(figure, this.figureFactory.getMinArea(30, Figure.RECTANGLE));
+        Figure figure = new Rectangle(new Meter(5), new Meter(6));
+        assertEquals(figure, this.figureFactory.getMinArea(new Meter(30), Figure.RECTANGLE));
 
-        figure = new Rectangle(5, 5);
-        assertEquals(figure, this.figureFactory.getMinArea(25, Figure.RECTANGLE));
+        figure = new Rectangle(new Meter(5), new Meter(5));
+        assertEquals(figure, this.figureFactory.getMinArea(new Meter(25), Figure.RECTANGLE));
     }
 
 }

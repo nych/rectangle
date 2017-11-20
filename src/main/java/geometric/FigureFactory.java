@@ -1,5 +1,8 @@
 package geometric;
 
+import unit.Meter;
+import unit.Unit;
+
 /**
  * Figure factory
  */
@@ -11,23 +14,23 @@ public class FigureFactory {
      * @param figure the type of figure
      * @return figure of the specified type
      */
-    public Figure getMinArea(int area, int figure) {
+    public Figure getMinArea(Unit area, int figure) {
         Figure fig = null;
 
         if(figure == Figure.RECTANGLE) {
 
-            int x = 0;
+            Unit x = new Meter(0);
 
-            for(int i = 1; i * i <= area; i++) {
-                if (area % i == 0)
-                    x = i;
+            for(int i = 1; area.greaterOrEqual(i * i); i++) {
+                if(area.modulo(i).equal(0))
+                    x.setValue(i);
             }
 
-            int y = area / x;
+            Unit y = area.divide(x);
 
             fig = new Rectangle(x, y);
 
-            } else {
+        } else {
             throw new IllegalArgumentException("Figure unknown.");
         }
 

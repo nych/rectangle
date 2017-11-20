@@ -1,5 +1,7 @@
 package geometric;
 
+import unit.Unit;
+
 import java.util.Objects;
 
 /**
@@ -8,17 +10,17 @@ import java.util.Objects;
 public class Rectangle implements Figure {
 
     /** Side x **/
-    private int x = 0;
+    private Unit x = null;
 
     /** Side y **/
-    private int y = 0;
+    private Unit y = null;
 
     /**
      * Default Constructor
      * @param x
      * @param y
      */
-    public Rectangle(int x, int y) {
+    public Rectangle(Unit x, Unit y) {
         this.x = x;
         this.y = y;
     }
@@ -27,7 +29,7 @@ public class Rectangle implements Figure {
      * Setter for side x
      * @param x length of side x
      */
-    public void setX(int x) {
+    public void setX(Unit x) {
         this.x = x;
     }
 
@@ -35,7 +37,7 @@ public class Rectangle implements Figure {
      * Getter for side x
      * @return length of side x
      */
-    public int getX() {
+    public Unit getX() {
         return this.x;
     }
 
@@ -43,7 +45,7 @@ public class Rectangle implements Figure {
      * Setter for side y
      * @param y length of side y
      */
-    public void setY(int y) {
+    public void setY(Unit y) {
         this.y = y;
     }
 
@@ -51,18 +53,18 @@ public class Rectangle implements Figure {
      * Getter for side y
      * @return length of side y
      */
-    public int getY() {
+    public Unit getY() {
         return this.y;
     }
 
     @Override
-    public int getPerimeter() {
-        return 2 * this.x + 2 * this.y;
+    public Unit getPerimeter() {
+        return this.x.plus(this.y).multiply(2);
     }
 
     @Override
-    public int getArea() {
-        return this.x * this.y;
+    public Unit getArea() {
+        return this.x.multiply(this.y);
     }
 
     @Override
@@ -80,6 +82,7 @@ public class Rectangle implements Figure {
 
         Rectangle other = (Rectangle) o;
 
-        return this.x == other.x && this.y == other.y;
+        return Objects.equals(this.x, other.x) &&
+                Objects.equals(this.y, other.y);
     }
 }

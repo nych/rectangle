@@ -1,5 +1,7 @@
 package geometric;
 
+import unit.Unit;
+
 /**
  * Figure represents geometrical figures.
  */
@@ -12,11 +14,11 @@ public interface Figure {
      * Calculates the perimeter of the figure.
      * @return the perimeter of the figure
      */
-    public int getPerimeter();
+    public Unit getPerimeter();
 
     /**
      * Calculates the area of the figure
      * @return the area of the figure
      */
-    public int getArea();
+    public Unit getArea();
 }
